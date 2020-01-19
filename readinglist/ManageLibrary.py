@@ -1,4 +1,4 @@
-from readinglist.CreateLibrary import StartBookCase
+from readinglist.CreateLibrary import start_new_book
 from readinglist.CreateLibrary import make_book_card
 
 
