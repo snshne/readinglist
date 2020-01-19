@@ -50,7 +50,7 @@ book_card = {
     'foreign': {'question': 'Is the author non-American?',
                 'type': int,
                 'min': 0,
-                'max': 1
+                'max': 1,
                 'range': None,
                 },
     'goodreads': {'question': 'What is the Goodreads book score?',
