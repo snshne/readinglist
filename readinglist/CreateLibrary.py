@@ -1,6 +1,11 @@
-def start_new_book():
-    book_case = {
+from readinglist.Librarian import book_card
+from readinglist.Librarian import librarian_script
+
+
+def create_empty_book():
+    book = {
         'title': [],
+        'author': [],
         'format': [],
         'fiction': [],
         'completed': [],
@@ -10,48 +15,19 @@ def start_new_book():
         'foreign': [],
         'goodreads': []
     }
-    return (book_case)
+    return book
 
 
-def make_book_card():
-    '''
-    Make empty questionnaire for user to enter  book information
-    :return:
-    '''
-    book_card = {
-        'title': {'question': 'What is the title of the book?',
-                  'answer': ''},
-        'format': {'question': 'What format was the book read in?',
-                   'answer': '',
-                   'values': ['paperback', 'hardcover', 'audiobook', 'kindle''']
-                   },
-        'fiction': {'question': 'Was the book fiction?',
-                    'answer': '',
-                    'values': [0, 1]
-                    },
-        'completed': {'question': 'Has the book been completed?',
-                      'answer': '',
-                      'values': [0, 1]
-                      },
-        'reread': {'question': 'Was this the first reading?',
-                   'answer': '',
-                   'values': [0, 1]
-                   },
-        'female': {'question': 'Is the author female?',
-                   'answer': '',
-                   'values': [0, 1]
-                   },
-        'poc': {'question': 'Is the author a POC?',
-                'answer': '',
-                'values': [0, 1]
-                },
-        'foreign': {'question': 'Is the author non-American?',
-                    'answer': '',
-                    'values': [0, 1]
-                    },
-        'goodreads': {'question': 'What is the Goodreads book score?',
-                      'answer': '',
-                      'type': float
-                      },
-    }
-    return (book_card)
+def start_new_book():
+    book = {}
+    for k in book_card.keys():
+        card_details = book_card[k]
+        new_value = librarian_script(part=k,
+                                     question=card_details['question'],
+                                     type_=card_details['type'],
+                                     min_=card_details['min'],
+                                     max_=card_details['max'],
+                                     range_=card_details['range']
+                                     )
+        book[k] = [new_value]
+    return book
