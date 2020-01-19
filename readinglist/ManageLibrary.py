@@ -81,6 +81,10 @@ def StoreBook(book_details, book_case = None):
     if book_case is None:
         book_case = StartBookCase()
 
+    for k in book_case.keys():
+        book_case[k] += book_details[k]['answer']
+
+    return(book_case)
 
 
 
