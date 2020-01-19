@@ -1,4 +1,4 @@
-def StartBookCase():
+def start_new_book():
     book_case = {
         'title': [],
         'format': [],
@@ -13,7 +13,7 @@ def StartBookCase():
     return (book_case)
 
 
-def MakeBookCard():
+def make_book_card():
     '''
     Make empty questionnaire for user to enter  book information
     :return:
