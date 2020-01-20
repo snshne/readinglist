@@ -1,7 +1,7 @@
 def store_book(book, book_case=None):
     '''
     This function will put a book onto the book case
-    :param book: dictionary of output from 'GetBookInformation'
+    :param book: dictionary of book information
     :param book_case:  dictionary of stored book library
     :return: book_case: updated dictionary of stored book library
     '''
