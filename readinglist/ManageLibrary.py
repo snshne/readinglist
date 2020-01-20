@@ -1,13 +1,17 @@
 import json
+from readinglist.CreateLibrary import start_new_book
 
 
-def store_book(book, book_case=None):
+def store_book(book = None, book_case=None):
     '''
     This function will put a book onto the book case
     :param book: dictionary of book information
     :param book_case:  dictionary of stored book library
     :return: book_case: updated dictionary of stored book library
     '''
+
+    if book is None:
+        book = start_new_book()
 
     if book_case is None:
         book_case = book
