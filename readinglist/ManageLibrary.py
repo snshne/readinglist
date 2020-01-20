@@ -12,8 +12,9 @@ def store_book(book, book_case=None):
     if book_case is None:
         book_case = book
 
-    for k in book_case.keys():
-        book_case[k] += book[k]
+    else:
+        for k in book_case.keys():
+            book_case[k] += book[k]
 
     return (book_case)
 
@@ -23,15 +24,14 @@ def open_library(library_path):
     :param library_path: path to where the current library dictionary is stored
     :return: dictionary of library
     '''
-
-    library = json.load(library_path)
+    with open(library_path, 'r') as fp:
+        library = json.load(fp)
     return library
 
-def close_libary(library_path):
+def close_library(library, library_path):
     '''
     this function will save the library dictionary to the library path
     :param library_path: path to where the current library dictionary is stored
     '''
-
-    json.dump(library_path)
-
+    with open(library_path, 'w') as fp:
+        json.dump(library, fp)
